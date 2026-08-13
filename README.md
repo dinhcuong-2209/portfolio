@@ -1,1 +1,8 @@
-CƯỜNG Portfolio V3 — based on the first version. Removed the CƯỜNG logo, kept VISUAL as clean outline typography without overlapping strokes, added a continuous MOTION / 3D / EDITING / VISUAL ticker, and restored the normal mouse cursor.
+# Portfolio
+
+GitHub Pages-ready portfolio.
+
+## Upload
+Upload `index.html` and the `assets` folder to the root of your GitHub repository.
+
+If GitHub Pages is already enabled for the repository, the site will update after the new commit is deployed.
