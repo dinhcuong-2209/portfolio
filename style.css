@@ -377,6 +377,42 @@ footer{
   letter-spacing:.1em;
 }
 
+/* INNER PAGES */
+.inner-page .nav{position:fixed;inset:0 0 auto 0;height:auto;padding:24px 34px;justify-content:space-between;background:none;mix-blend-mode:difference}
+.inner-page .nav>a{display:block}
+.inner-page .logo{width:52px;height:52px;object-fit:contain}
+.inner-page .page-main{min-height:100vh;padding:165px 4vw 100px}
+.inner-page .page-kicker{font-size:10px;letter-spacing:.16em;color:var(--muted);margin-bottom:28px}
+.inner-page .page-title{font-size:clamp(58px,9vw,135px);line-height:.88;letter-spacing:-.07em;font-weight:800}
+.inner-page .page-intro{max-width:680px;margin:48px 0 100px;color:#aaa;font-size:16px;line-height:1.7}
+.inner-page .detail-list{border-top:1px solid var(--line)}
+.inner-page .detail-row{display:grid;grid-template-columns:1fr 2fr;gap:8vw;padding:42px 0;border-bottom:1px solid var(--line)}
+.inner-page .detail-row h2{font-size:12px;letter-spacing:.12em;font-weight:600}
+.inner-page .detail-row p{max-width:650px;color:#999;line-height:1.7;font-size:14px}
+.inner-page .tag-list{display:flex;flex-wrap:wrap;gap:9px}
+.inner-page .tag-list span{border:1px solid #333;padding:9px 11px;font-size:9px;letter-spacing:.1em}
+.inner-page .service-list{margin-top:100px;border-top:1px solid var(--line)}
+.inner-page .service-item{display:grid;grid-template-columns:70px 1fr 1fr;gap:4vw;padding:42px 0;border-bottom:1px solid var(--line);align-items:start}
+.inner-page .service-item .number{font-size:10px;color:#666}
+.inner-page .service-item h2{font-size:22px;font-weight:500}
+.inner-page .service-item p{color:#999;line-height:1.7;font-size:14px}
+.inner-page .contact-links{margin-top:100px;border-top:1px solid var(--line)}
+.inner-page .contact-link{display:flex;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.12em}
+.inner-page .contact-link span:last-child{color:#777}
+.inner-page .contact-cta{display:inline-block;margin-top:90px;font-size:clamp(32px,6vw,90px);line-height:1;border-bottom:1px solid #777;padding-bottom:12px}
+.inner-page .back-home{display:inline-block;margin-top:100px;color:var(--muted);font-size:10px;letter-spacing:.14em}
+
+@media(max-width:700px){
+  .inner-page .nav{height:auto;padding:18px}
+  .inner-page .nav nav{display:flex;gap:14px;font-size:8px}
+  .inner-page .logo{width:44px;height:44px}
+  .inner-page .page-main{padding:130px 18px 70px}
+  .inner-page .page-intro{margin:36px 0 70px;font-size:14px}
+  .inner-page .detail-row,.inner-page .service-item{grid-template-columns:1fr;gap:18px;padding:32px 0}
+  .inner-page .service-list,.inner-page .contact-links{margin-top:70px}
+  .inner-page .contact-cta,.inner-page .back-home{margin-top:70px}
+}
+
 /* MOBILE */
 @media(max-width:700px){
   .nav{height:70px}
