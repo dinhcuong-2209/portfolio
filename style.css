@@ -390,7 +390,7 @@ footer{
 .inner-page .detail-row h2{font-size:12px;letter-spacing:.12em;font-weight:600}
 .inner-page .detail-row p{max-width:650px;color:#999;line-height:1.7;font-size:14px}
 .inner-page .tag-list{display:flex;flex-wrap:wrap;gap:9px}
-.inner-page .tag-list span{border:1px solid #333;padding:9px 11px;font-size:9px;letter-spacing:.1em}
+.inner-page .tag-list span{border:1px solid #333;padding:9px 11px;font-size:10px;letter-spacing:.1em}
 .inner-page .service-list{margin-top:100px;border-top:1px solid var(--line)}
 .inner-page .service-item{display:grid;grid-template-columns:70px 1fr 1fr;gap:4vw;padding:42px 0;border-bottom:1px solid var(--line);align-items:start}
 .inner-page .service-item .number{font-size:10px;color:#666}
@@ -404,7 +404,7 @@ footer{
 
 @media(max-width:700px){
   .inner-page .nav{height:auto;padding:18px}
-  .inner-page .nav nav{display:flex;gap:14px;font-size:8px}
+  .inner-page .nav nav{display:flex;gap:14px;font-size:10px}
   .inner-page .logo{width:44px;height:44px}
   .inner-page .page-main{padding:130px 18px 70px}
   .inner-page .page-intro{margin:36px 0 70px;font-size:14px}
