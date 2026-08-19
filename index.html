@@ -52,6 +52,10 @@ button{font:inherit}
   border:1px solid var(--line);background:#080808;overflow:hidden;cursor:pointer;
   transition:transform .25s ease,border-color .25s ease;
 }
+.card[data-cat="EVENT"]{order:1}
+.card[data-cat="MOTION"]{order:2}
+.card[data-cat="EDITING"]{order:3}
+.card[data-cat="3D"]{order:4}
 .card:hover{transform:translateY(-3px);border-color:#383838}
 .thumb{
   aspect-ratio:16/9;position:relative;overflow:hidden;
@@ -116,7 +120,7 @@ button{font:inherit}
 
 <section class="hero" id="top">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/videos/dark galaxy_1.mp4" type="video/mp4">
+    <source src="assets/videos/giay_1.mp4" type="video/mp4">
   </video>
   <div class="hero-copy">
     <div class="role">VISUAL ARTIST / MOTION DESIGNER</div>
