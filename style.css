@@ -404,6 +404,8 @@ footer{
 .inner-page .contact-link{display:flex;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.12em}
 .inner-page .contact-link span:last-child{color:#777}
 .inner-page .contact-cta{display:inline-block;margin-top:90px;font-size:clamp(32px,6vw,90px);line-height:1;border-bottom:1px solid #777;padding-bottom:12px}
+.inner-page .about-contact{margin-top:150px;padding-top:110px;border-top:1px solid var(--line)}
+.inner-page .about-contact .page-kicker{margin-bottom:28px}
 .inner-page .back-home{display:inline-block;margin-top:100px;color:var(--muted);font-size:10px;letter-spacing:.14em}
 
 @media(max-width:700px){
@@ -417,6 +419,9 @@ footer{
   .inner-page .about-portrait{width:min(68vw,240px);justify-self:center;transform:none}
   .inner-page .detail-row,.inner-page .service-item{grid-template-columns:1fr;gap:18px;padding:32px 0}
   .inner-page .service-list,.inner-page .contact-links{margin-top:70px}
+  .inner-page .about-contact{margin-top:100px;padding-top:70px}
+  .inner-page .contact-link{gap:24px;font-size:10px}
+  .inner-page .contact-link span:last-child{text-align:right}
   .inner-page .contact-cta,.inner-page .back-home{margin-top:70px}
 }
 
