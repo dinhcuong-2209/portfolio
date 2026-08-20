@@ -8,17 +8,17 @@
 </head>
 <body class="inner-page">
   <header class="nav">
-    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Logo"></a>
+    <a href="index.html"><img class="logo" src="assets/LogoC.svg" alt="Logo"></a>
     <nav>
-      <a href="index.html#work">WORK</a><a href="about.html">ABOUT</a>
+      <a href="index.html#work" data-i18n="work">WORK</a><a href="about.html" data-i18n="about">ABOUT</a>
     </nav>
   </header>
   <main class="page-main">
-    <div class="page-kicker">02 / ABOUT</div>
+    <div class="page-kicker" data-i18n="aboutKicker">02 / ABOUT ME</div>
     <div class="about-intro">
       <div class="about-copy">
-        <h1 class="page-title">ABOUT ME</h1>
-        <p class="page-intro">I'm Cường, a Visual Artist &amp; Motion Designer creating event visuals, 3D motion and digital content for stages, screens and brands.</p>
+        <h1 class="page-title" data-i18n="aboutTitle">ABOUT ME</h1>
+        <p class="page-intro" data-i18n="aboutIntro">I'm Cường, a Visual Artist &amp; Motion Designer creating event visuals, 3D motion and digital content for stages, screens and brands.</p>
       </div>
       <figure class="about-portrait">
         <img src="assets/image/hinh.png" alt="Portrait of Cường" decoding="async">
@@ -26,33 +26,37 @@
     </div>
     <div class="detail-list">
       <section class="detail-row">
-        <h2>EXPERIENCE</h2>
-        <p>3+ YEARS — Event Visual / Motion Design / 3D / Video Production</p>
+        <h2 data-i18n="experience">EXPERIENCE</h2>
+        <p data-i18n="experienceText">3+ YEARS — Event Visual / Motion Design / 3D / Video Production</p>
       </section>
       <section class="detail-row">
-        <h2>TOOLS</h2>
+        <h2 data-i18n="tools">TOOLS</h2>
         <div class="tag-list"><span>AFTER EFFECTS</span><span>BLENDER</span><span>PREMIERE PRO</span><span>PHOTOSHOP</span></div>
       </section>
       <section class="detail-row">
-        <h2>WHAT I DO</h2>
-        <p>Event Visual · 3D Motion · Motion Design · Video Editing</p>
+        <h2 data-i18n="whatIDo">WHAT I DO</h2>
+        <p data-i18n="whatIDoText">Event Visual · 3D Motion · Motion Design · Video Editing</p>
       </section>
       <section class="detail-row">
-        <h2>BASED IN</h2>
-        <p>HO CHI MINH CITY, VIETNAM</p>
+        <h2 data-i18n="basedIn">BASED IN</h2>
+        <p data-i18n="location">HO CHI MINH CITY, VIETNAM</p>
       </section>
     </div>
     <section class="about-contact" aria-labelledby="about-contact-title">
-      <div class="page-kicker">03 / CONTACT</div>
-      <h2 class="page-title" id="about-contact-title">LET’S WORK<br>TOGETHER</h2>
+      <div class="page-kicker" data-i18n="contactKicker">03 / CONTACT</div>
+      <h2 class="page-title" id="about-contact-title" data-i18n="contactTitle" data-i18n-html>LET’S WORK<br>TOGETHER</h2>
       <div class="contact-links">
-        <div class="contact-link"><span>EMAIL</span><span>EMAIL ADDRESS</span></div>
-        <div class="contact-link"><span>INSTAGRAM</span><span>INSTAGRAM PROFILE</span></div>
-        <div class="contact-link"><span>BEHANCE</span><span>BEHANCE PROFILE</span></div>
+        <div class="contact-link"><span data-i18n="email">EMAIL</span><span data-i18n="emailAddress">EMAIL ADDRESS</span></div>
+        <div class="contact-link"><span>INSTAGRAM</span><span data-i18n="instagramProfile">INSTAGRAM PROFILE</span></div>
+        <div class="contact-link"><span>BEHANCE</span><span data-i18n="behanceProfile">BEHANCE PROFILE</span></div>
       </div>
-      <a class="contact-cta" href="mailto:">GET IN TOUCH ↗</a>
+      <a class="contact-cta" href="mailto:" data-i18n="getInTouch">GET IN TOUCH ↗</a>
     </section>
-    <a class="back-home" href="index.html">← BACK TO HOME</a>
+    <a class="back-home" href="index.html" data-i18n="backHome">← BACK TO HOME</a>
   </main>
+  <footer class="site-footer">
+    <div class="lang-switcher" aria-label="Language selector"><button type="button" data-lang="en">EN</button><span class="lang-separator">·</span><button type="button" data-lang="zh" lang="zh-CN">中文</button><span class="lang-separator">·</span><button type="button" data-lang="vi">VI</button></div>
+  </footer>
+  <script src="i18n.js"></script>
 </body>
 </html>
