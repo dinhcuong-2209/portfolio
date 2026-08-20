@@ -63,6 +63,8 @@ button{font:inherit}
 .card[data-cat="EDITING"]{order:3}
 .card[data-cat="3D"]{order:4}
 .card:hover{transform:translateY(-3px);border-color:#383838}
+.card.reveal{animation:cardReveal .45s ease both}
+@keyframes cardReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .thumb{
   aspect-ratio:16/9;position:relative;overflow:hidden;
   background:#111;
@@ -83,6 +85,11 @@ button{font:inherit}
 .meta h3{margin:0 0 7px;font-size:17px;font-weight:500;letter-spacing:.02em}
 .meta p{margin:0;font-size:10px;color:var(--accent);letter-spacing:.08em}
 .arrow{font-size:22px;color:#aaa}
+.projects-more{display:flex;justify-content:center;margin:45px 0;padding:0}
+#work{padding-bottom:0}
+.view-more{border:0;border-bottom:1px solid #555;background:transparent;color:var(--text);padding:8px 0;font-size:10px;letter-spacing:.12em;transition:border-color .2s ease,color .2s ease}
+.view-more:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.view-more[hidden]{display:none}
 
 .info-row{
   border-top:1px solid var(--line);display:grid;grid-template-columns:1fr;
@@ -110,6 +117,7 @@ button{font:inherit}
   .hero-copy{left:18px;right:18px;bottom:0;height:21%;align-items:center;transform:translateY(4px)}
   .hero-copy{gap:10px}.hero-copy .role,.hero-copy .note{font-size:7.5px;letter-spacing:.06em}
   .site-footer{min-height:76px;padding:0 18px;justify-content:center}.lang-switcher{gap:12px;font-size:11px}
+  .projects-more{margin:30px 0;padding:0}
   .grid{grid-template-columns:1fr}.section{padding:45px 18px 60px}
   .section-head{align-items:flex-start;flex-direction:column}.filters{gap:18px}
   .info-row{grid-template-columns:1fr}.info-box{border-right:0;border-bottom:1px solid var(--line);padding:35px 18px}
@@ -265,6 +273,7 @@ button{font:inherit}
       <div class="meta"><div><h3>MV Sunsilk</h3><p>MOTION DESIGN</p></div><span class="arrow">↗</span></div>
     </article>
   </div>
+  <div class="projects-more"><button class="view-more" id="viewMore" type="button" data-i18n="viewMore">VIEW MORE</button></div>
 </section>
 
 <section class="info-row">
@@ -295,6 +304,41 @@ button{font:inherit}
 <script>
 const filters=[...document.querySelectorAll('.filter')];
 const cards=[...document.querySelectorAll('.card')];
+const grid=document.getElementById('grid');
+const viewMore=document.getElementById('viewMore');
+const mobileProjects=window.matchMedia('(max-width:800px)');
+const pageSize=()=>mobileProjects.matches?4:6;
+const categoryOrder={EVENT:1,MOTION:2,EDITING:3,'3D':4};
+const moreLabels={en:{more:'VIEW MORE',less:'SHOW LESS'},zh:{more:'查看更多',less:'收起'},vi:{more:'XEM THÊM',less:'THU GỌN'}};
+let activeFilter='ALL';
+let visibleCount=pageSize();
+
+const currentLanguage=()=>document.documentElement.lang==='zh-CN'?'zh':document.documentElement.lang;
+const matchingCards=()=>cards
+  .filter(card=>activeFilter==='ALL'||card.dataset.cat.split(' ').includes(activeFilter))
+  .sort((a,b)=>activeFilter==='ALL'?(categoryOrder[a.dataset.cat]-categoryOrder[b.dataset.cat]):0);
+
+const updateMoreLabel=()=>{
+  const matches=matchingCards();
+  const expanded=visibleCount>=matches.length;
+  const labels=moreLabels[currentLanguage()]||moreLabels.en;
+  viewMore.dataset.i18n=expanded?'showLess':'viewMore';
+  viewMore.textContent=expanded?labels.less:labels.more;
+};
+
+const renderProjects=(animateFrom=Infinity)=>{
+  const matches=matchingCards();
+  cards.forEach(card=>{card.style.display='none';card.classList.remove('reveal')});
+  matches.slice(0,visibleCount).forEach((card,index)=>{
+    card.style.display='block';
+    if(index>=animateFrom){
+      card.classList.add('reveal');
+      card.addEventListener('animationend',()=>card.classList.remove('reveal'),{once:true});
+    }
+  });
+  viewMore.hidden=matches.length<=pageSize();
+  updateMoreLabel();
+};
 document.querySelectorAll('.thumb video').forEach(preview=>{
   const card=preview.closest('.card');
   card.addEventListener('mouseenter',()=>preview.play().catch(()=>{}));
@@ -305,12 +349,25 @@ document.querySelectorAll('.thumb video').forEach(preview=>{
 });
 filters.forEach(btn=>btn.addEventListener('click',()=>{
   filters.forEach(x=>x.classList.remove('active')); btn.classList.add('active');
-  const f=btn.dataset.filter;
-  cards.forEach(card=>{
-    const show=f==='ALL'||card.dataset.cat.split(' ').includes(f);
-    card.style.display=show?'block':'none';
-  });
+  activeFilter=btn.dataset.filter;
+  visibleCount=pageSize();
+  renderProjects();
 }));
+viewMore.addEventListener('click',()=>{
+  const matches=matchingCards();
+  if(visibleCount>=matches.length){
+    visibleCount=pageSize();
+    renderProjects();
+    grid.scrollIntoView({behavior:'smooth',block:'start'});
+  }else{
+    const previousCount=visibleCount;
+    visibleCount=Math.min(visibleCount+pageSize(),matches.length);
+    renderProjects(previousCount);
+  }
+});
+document.addEventListener('portfolio:languagechange',updateMoreLabel);
+mobileProjects.addEventListener('change',()=>{visibleCount=pageSize();renderProjects()});
+renderProjects();
 const modal=document.getElementById('modal');
 const projectVideo=document.getElementById('projectVideo');
 const projectImage=document.getElementById('projectImage');
